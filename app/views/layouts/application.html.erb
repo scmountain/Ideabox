@@ -9,9 +9,11 @@
   </head>
 
   <body>
+    <%= link_to "Logout", logout_path %>
     <% flash.each do |key, value|  %>
   <div class="flash_<%= key %>"><%= value %></div>
   <% end %>
     <%= yield %>
+
   </body>
 </html>

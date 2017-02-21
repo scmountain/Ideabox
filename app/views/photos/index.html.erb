@@ -1,10 +1,9 @@
 <h1>Your Photos</h1>
 <%= link_to "Add a Photo", new_photo_path %>
-<br>
-<% @photos.each do |f|  %>
+  <br>
+  <% @photos.each do |f|  %>
     <%= image_tag f.url %>
     <br>
     <%= f.caption %>
     <br>
-
-    <% end %>
+  <% end %>

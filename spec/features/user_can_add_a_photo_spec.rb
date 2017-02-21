@@ -19,4 +19,11 @@ RSpec.feature "user can add photos" do
       expect(page).to have_content "string-kini!"
     end
   end
+
+  scenario "user sees all movies" do
+    user = User.create(username: "Billy-Bob",
+                      password: 'pass',
+                      password_confirmation: "pass")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
 end
