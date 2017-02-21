@@ -12,8 +12,8 @@ RSpec.feature "User Can Login" do
     fill_in "session[password]", with: 'pass'
     fill_in "session[password_confirmation]", with: 'pass'
 
-    click_on "Log in"
+    click_on "Login"
 
-    expect(current_path).to eq(users_path(user))
+    expect(current_path).to eq(user_path(user))
   end
 end
