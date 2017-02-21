@@ -15,5 +15,6 @@ RSpec.feature "User Can Login" do
     click_on "Login"
 
     expect(current_path).to eq(user_path(user))
+    expect(page).to have_content("Welcome Billy-Bob!")
   end
 end
