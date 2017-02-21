@@ -11,9 +11,10 @@ RSpec.feature "user can add photos" do
       visit photos_path
       click_on "Add a Photo"
 
-      fill_in "Url", with: "http://kingofwallpapers.com/gnome/gnome-010.jpg"
-      fill_in "Caption", with: "string-kini!"
-      select 'Funny', from: "photo_category"
+      fill_in "photo[url]", with: "http://kingofwallpapers.com/gnome/gnome-010.jpg"
+      fill_in "photo[caption]", with: "string-kini!"
+      select 'Funny', from: "photo[category]"
+      click_on "Save Photo"
 
       expect(page).to have_content "string-kini!"
     end
