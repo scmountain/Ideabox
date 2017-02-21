@@ -33,6 +33,6 @@ RSpec.feature "user can add photos" do
 
     visit photos_path
     expect(page).to have_content("string-kini")
-    expect(page).to have_content("zen")
+    expect(page).to have_content("string-kini")
   end
 end

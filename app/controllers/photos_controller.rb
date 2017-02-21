@@ -2,6 +2,11 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.all
     @comments = Comment.all
+    commentable = Post.create
+    comment = commentable.comments.create
+    comment.title = "First comment."
+    comment.comment = "This is the first comment."
+    comment.save
   end
 
   def new
