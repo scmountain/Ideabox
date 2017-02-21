@@ -17,4 +17,22 @@ RSpec.feature "User Can Login" do
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome Billy-Bob!")
   end
+
+  scenario "failed login" do
+    user = User.create(username: "Billy-Bob",
+                      password: 'pass',
+                      password_confirmation: "pass")
+    visit login_path
+    expect(page).to have_content("Please Login")
+    fill_in "session[username]", with: "Billy-Bob"
+    fill_in "session[password]", with: 'notpass'
+    fill_in "session[password_confirmation]", with: 'notpass'
+    click_on "Login"
+
+    expect(current_path).to eq(login_path)
+
+    within(".flash_danger") do
+    expect(page).to have_content("Invalid Username or Password!")
+    end
+  end
 end
