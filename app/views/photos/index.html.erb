@@ -6,4 +6,10 @@
     <br>
     <%= f.caption %>
     <br>
-  <% end %>
+    <%= form_for :comment,  do |s| %>
+    <p> Have a thought? </p>
+      <%= s.label :text %>
+      <%= s.text_field :text %>
+      <%= s.submit "Add Comment" %>
+      <% end %>
+    <% end %>
